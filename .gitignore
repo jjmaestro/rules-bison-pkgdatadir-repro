@@ -1,0 +1,8 @@
+/bazel-*
+/.ijwb
+/.clwb
+/.idea
+/.project
+*.swp
+/.bazelrc.user
+/repro_cmake
