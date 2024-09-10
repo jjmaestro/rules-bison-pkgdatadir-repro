@@ -29,7 +29,7 @@ cmake(
         # - https://github.com/bazelbuild/rules_foreign_cc/blob/0.12.0/foreign_cc/private/framework.bzl#L379-L380
         # - https://github.com/bazelbuild/rules_foreign_cc/blob/0.12.0/foreign_cc/private/framework.bzl#L1076-L1081
 
-				"BISON_EXECUTABLE": "$(execpath @bison//bin:bison)",
+        "BISON_EXECUTABLE": "$(execpath @bison//bin:bison)",
 
         # Without the `BISON_PKGDATADIR` definition below, we get the following
         # error, where `BISON_REPO_NAME` is the canonical name of the repository
@@ -47,7 +47,7 @@ cmake(
         #
         #   bison: m4 subprocess failed: No such file or directory
 
-				"M4": "$(execpath @m4//bin:m4)",
+        "M4": "$(execpath @m4//bin:m4)",
     },
     toolchains = [
         ":bison-repo",
@@ -61,7 +61,7 @@ cmake(
     install = False,
     lib_source = ":repro_srcs",
     out_lib_dir = "../repro.build_tmpdir",
-		out_static_libs = ["librepro.a"],
+    out_static_libs = ["librepro.a"],
 )
 
 repo_name_variable(
