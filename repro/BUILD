@@ -15,7 +15,7 @@ cmake(
     name = "repro",
     cache_entries = {
         # https://github.com/bazelbuild/rules_foreign_cc/pull/1219
-				# makes it impossible to set `-DBISON_EXECUTABLE` with `execpath` in
+        # makes it impossible to set `-DBISON_EXECUTABLE` with `execpath` in
         # `generate_args` using recent versions of rules_foreign_cc. Fortunately
         # we can work around with with `env` variables, and `cache_entries` is a
         # better home, anyway.

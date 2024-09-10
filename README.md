@@ -2,6 +2,9 @@
 
 Original repository: <https://github.com/mbland/rules-bison-pkgdatadir-repro>
 
+Related issue: [jmillikin/rules_bison: BISON_PKGDATADIR breaks when using
+cmake() from rules_foreign_cc #17][issue].
+
 Minimal reproduction of `BISON_PKGDATADIR` breakage between `rules_bison` and
 `rules_foreign_cc` as described in [Migrating to Bazel Modules (a.k.a. Bzlmod) -
 Repo Names, Macros, and Variables][blog].
@@ -54,6 +57,7 @@ Per @jmillikin's comment in [the #bzlmod channel of the Bazel slack][slack]:
 - [rules_foreign_cc](https://github.com/bazelbuild/rules_foreign_cc)
 - [rules_foreign_cc `cmake()` documentation](https://bazelbuild.github.io/rules_foreign_cc/main/cmake.html#cmake)
 
+[issue]: https://github.com/jmillikin/rules_bison/issues/17
 [blog]: https://blog.engflow.com/2024/09/06/migrating-to-bazel-modules-aka-bzlmod---repo-names-macros-and-variables/#updating-an-environment-variable-in-a-cmake-build-target
 [build]: ./repro/BUILD
 [slack]: https://bazelbuild.slack.com/archives/C014RARENH0/p1725925857793329?thread_ts=1725637275.962299&cid=C014RARENH0
