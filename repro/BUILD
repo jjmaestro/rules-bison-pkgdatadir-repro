@@ -17,18 +17,23 @@ cmake(
         # https://github.com/bazelbuild/rules_foreign_cc/pull/1219
         # makes it impossible to set `-DBISON_EXECUTABLE` with `execpath` in
         # `generate_args` using recent versions of rules_foreign_cc. Fortunately
-        # we can work around with with `env` variables, and `cache_entries` is a
-        # better home, anyway.
+        # we can work around this with with `env` variables, and `cache_entries`
+        # is a better home, anyway.
+        #
+        # Also, once https://github.com/bazelbuild/rules_foreign_cc/pull/1272
+        # makes it into a release, `cache_entries` will support location and
+        # Make variable expansion. Then we can get move the `BISON_EXECUTABLE`
+        # entry from `env` to replace the following.
         "BISON_EXECUTABLE": "$$BISON_EXECUTABLE$$",
     },
-    env = {
-        # Note that rules_foreign_cc implicitly prefixes every `$(execpath `
-        # value with `$$EXT_BUILD_ROOT$$/` unless it already contains
-        # `EXT_BUILD_ROOT`:
-        #
-        # - https://github.com/bazelbuild/rules_foreign_cc/blob/0.12.0/foreign_cc/private/framework.bzl#L379-L380
-        # - https://github.com/bazelbuild/rules_foreign_cc/blob/0.12.0/foreign_cc/private/framework.bzl#L1076-L1081
 
+    # Note that rules_foreign_cc implicitly prefixes every `$(execpath `
+    # value with `$$EXT_BUILD_ROOT$$/` unless it already contains
+    # `EXT_BUILD_ROOT`:
+    #
+    # - https://github.com/bazelbuild/rules_foreign_cc/blob/0.12.0/foreign_cc/private/framework.bzl#L379-L380
+    # - https://github.com/bazelbuild/rules_foreign_cc/blob/0.12.0/foreign_cc/private/framework.bzl#L1076-L1081
+    env = {
         "BISON_EXECUTABLE": "$(execpath @bison//bin:bison)",
 
         # Without the `BISON_PKGDATADIR` definition below, we get the following

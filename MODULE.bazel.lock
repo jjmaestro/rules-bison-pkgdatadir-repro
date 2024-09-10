@@ -117,7 +117,7 @@
     "@@rules_bison~//bison/extensions:bison_repository_ext.bzl%bison_repository_ext": {
       "general": {
         "bzlTransitiveDigest": "A+3YMZenwhA/NwA7Bes9xuoVWQNCaBPxA05vtcFi8I4=",
-        "usagesDigest": "1A8D4T8LPAVgjFDnvGXqoCbAiw6z57up4dQzqX+75J8=",
+        "usagesDigest": "QE4Ue/zc8i7LAA9fLqbKI8NYMDgx4fP4vEkk8C1yVIY=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
@@ -186,7 +186,7 @@
     "@@rules_foreign_cc~//foreign_cc:extensions.bzl%tools": {
       "general": {
         "bzlTransitiveDigest": "f6RBwbUKS3C3FNQJAYhIWLiHaTLQDr1nKJidK7iQTBg=",
-        "usagesDigest": "6E+f1yKVtUjPpoGLbAn6zOVf1HmWyiIBrUlzE1YTzFE=",
+        "usagesDigest": "Wspp4P/A2I/q/ovcIWHEujp4YitRQZMV2UlRKgAQZU8=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
@@ -581,7 +581,7 @@
     "@@rules_m4~//m4/extensions:m4_repository_ext.bzl%m4_repository_ext": {
       "general": {
         "bzlTransitiveDigest": "tc6Zmb/S7w+ZzaTB3I7n1U8zD+b5KbGTphYCdsiqXM8=",
-        "usagesDigest": "0nwWkw88If1xLB3BUbLTL1Agfhf0dTIGkQFG8W1u01o=",
+        "usagesDigest": "RjFvkHVmuECodeFI1y0hBu0PuzIBrBmcd9Caqox5o0Q=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
