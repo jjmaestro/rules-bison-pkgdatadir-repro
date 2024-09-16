@@ -186,7 +186,7 @@
     "@@rules_foreign_cc~//foreign_cc:extensions.bzl%tools": {
       "general": {
         "bzlTransitiveDigest": "f6RBwbUKS3C3FNQJAYhIWLiHaTLQDr1nKJidK7iQTBg=",
-        "usagesDigest": "Wspp4P/A2I/q/ovcIWHEujp4YitRQZMV2UlRKgAQZU8=",
+        "usagesDigest": "rcono0M8vAWDAJxsr93rRa5vX8s73ZexMVAKXNZRFTg=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
