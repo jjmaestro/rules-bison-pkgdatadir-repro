@@ -31,3 +31,16 @@ bison.repository(
     version = "3.3.2",
 )
 use_repo(bison, "bison")
+
+bazel_dep(name = "rules_python", version = "0.36.0")
+
+python = use_extension("@rules_python//python/extensions:python.bzl", "python")
+python.toolchain(
+    # NOTE: https://github.com/bazelbuild/rules_python/pull/713
+    # we need to override rules_python so that it works with root
+    # users which is something that's common with remote builds,
+    # containers or CI/CD pipelines
+    ignore_root_user_error = True,
+    python_version = "3.12",
+)
+use_repo(python, "python_3_12")

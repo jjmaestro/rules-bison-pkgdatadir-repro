@@ -1,10 +1,18 @@
 load(":rules.bzl", "repo_name_variable")
-load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake")
+load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake", "meson")
 
 filegroup(
     name = "repro_srcs",
     srcs = [
       "CMakeLists.txt",
+      "rpcalc.y",
+    ],
+)
+
+filegroup(
+    name = "repro_srcs_meson",
+    srcs = [
+      "meson.build",
       "rpcalc.y",
     ],
 )
@@ -59,4 +67,28 @@ cmake(
 repo_name_variable(
     name = "bison-repo",
     dep = "@bison//bin:bison",
+)
+
+meson(
+    name = "repro_meson",
+    lib_source = ":repro_srcs_meson",
+    out_lib_dir = "../repro_meson.build_tmpdir",
+    out_static_libs = ["librepromeson.a"],
+    install = False,
+    env = select({
+        "//conditions:default": {
+            "PATH": ":".join([
+                "$$(dirname $$EXT_BUILD_ROOT/$(execpath @python_3_12//:python3))",
+                "$$(dirname $$EXT_BUILD_ROOT/$(execpath @bison//bin:bison))",
+                "$$PATH",
+            ]),
+        },
+    }),
+    build_data = [
+        "@python_3_12//:python3",
+        "@bison//bin:bison",
+    ],
+    toolchains = [
+        "@rules_bison//bison:current_bison_toolchain",
+    ],
 )
