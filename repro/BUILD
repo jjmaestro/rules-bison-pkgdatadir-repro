@@ -36,18 +36,6 @@ cmake(
     env = {
         "BISON_EXECUTABLE": "$(execpath @bison//bin:bison)",
 
-        # Without the `BISON_PKGDATADIR` definition below, we get the following
-        # error, where `BISON_REPO_NAME` is the canonical name of the repository
-        # for `@bison//bin:bison`:
-        #
-        #   bison: external/BISON_REPO_NAME/data/m4sugar/m4sugar.m4:
-        #     cannot open: No such file or directory
-        #
-        # Uncomment the `BISON_PKGDATADIR` definition to make the error go away.
-
-        #"BISON_PKGDATADIR": "$(execpath @bison//bin:bison).runfiles/" +
-        #    "$(bison-repo)/data",
-
         # Defining this as "$(M4)" doesn't work:
         #
         #   bison: m4 subprocess failed: No such file or directory
@@ -55,7 +43,6 @@ cmake(
         "M4": "$(execpath @m4//bin:m4)",
     },
     toolchains = [
-        ":bison-repo",
         "@rules_bison//bison:current_bison_toolchain",
         "@rules_m4//m4:current_m4_toolchain",
     ],

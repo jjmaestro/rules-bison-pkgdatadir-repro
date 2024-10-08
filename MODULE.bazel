@@ -6,6 +6,12 @@ bazel_dep(name = "rules_foreign_cc", version = "0.12.0")
 bazel_dep(name = "rules_m4", version = "0.2.3")
 bazel_dep(name = "rules_bison", version = "0.2.2")
 
+git_override(
+    module_name = "rules_bison",
+    remote = "https://github.com/jmillikin/rules_bison",
+    commit="e8d151d3efdac2b1ff4208de81e3312729242f49",
+)
+
 m4 = use_extension(
     "@rules_m4//m4/extensions:m4_repository_ext.bzl",
     "m4_repository_ext",
