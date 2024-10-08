@@ -82,6 +82,9 @@ meson(
                 "$$(dirname $$EXT_BUILD_ROOT/$(execpath @bison//bin:bison))",
                 "$$PATH",
             ]),
+            "BISON_PKGDATADIR": "$$EXT_BUILD_ROOT/" +
+                "$(execpath @bison//bin:bison).runfiles/" +
+                "$(bison-repo)/data",
         },
     }),
     build_data = [
@@ -89,6 +92,7 @@ meson(
         "@bison//bin:bison",
     ],
     toolchains = [
+        ":bison-repo",
         "@rules_bison//bison:current_bison_toolchain",
     ],
 )
