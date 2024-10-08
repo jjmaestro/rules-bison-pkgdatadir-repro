@@ -6,3 +6,4 @@
 *.swp
 /.bazelrc.user
 /repro_cmake
+MODULE.bazel.lock
